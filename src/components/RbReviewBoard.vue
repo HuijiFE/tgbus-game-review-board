@@ -46,25 +46,25 @@
       <div class="rb-review-board_score-badge">
         <div class="rb-review-board_score-total">
           <div class="rb-review-board_score-total-value">{{scoreTotal | scoreFix}}分</div>
-          <div class="rb-review-board_score-total-label">非玩不可</div>
+          <div class="rb-review-board_score-total-label">{{scoreTotalLabel}}</div>
         </div>
 
         <div class="rb-review-board_score-wrapper">
           <div class="rb-review-board_score-item">
             <span class="rb-review-board_score-item-label">画面：</span>
-            <span class="rb-review-board_score-item-value">{{scoreTotal | scoreFix}}</span>
+            <span class="rb-review-board_score-item-value">{{scoreGraphic | scoreFix}}</span>
           </div>
           <div class="rb-review-board_score-item">
             <span class="rb-review-board_score-item-label">音效：</span>
-            <span class="rb-review-board_score-item-value">{{scoreTotal | scoreFix}}</span>
+            <span class="rb-review-board_score-item-value">{{scoreAudio | scoreFix}}</span>
           </div>
           <div class="rb-review-board_score-item">
             <span class="rb-review-board_score-item-label">系统：</span>
-            <span class="rb-review-board_score-item-value">{{scoreTotal | scoreFix}}</span>
+            <span class="rb-review-board_score-item-value">{{scoreSystem | scoreFix}}</span>
           </div>
           <div class="rb-review-board_score-item">
             <span class="rb-review-board_score-item-label">操作：</span>
-            <span class="rb-review-board_score-item-value">{{scoreTotal | scoreFix}}</span>
+            <span class="rb-review-board_score-item-value">{{scoreOperation | scoreFix}}</span>
           </div>
         </div>
       </div>
@@ -119,5 +119,20 @@ export default class RbReviewBoard extends Vue {
 
   @Prop({ type: Number, default: 0 })
   public scoreTotal: number;
+
+  @Prop({ type: String })
+  public scoreTotalLabel: number;
+
+  @Prop({ type: Number, default: 0 })
+  public scoreGraphic: number;
+
+  @Prop({ type: Number, default: 0 })
+  public scoreAudio: number;
+
+  @Prop({ type: Number, default: 0 })
+  public scoreSystem: number;
+
+  @Prop({ type: Number, default: 0 })
+  public scoreOperation: number;
 }
 </script>

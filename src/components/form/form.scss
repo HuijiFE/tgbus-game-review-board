@@ -1,0 +1,121 @@
+$form-item-height: 32px;
+$form-item_label-width: 64px;
+$form-padding: 8px;
+$transition-base: all ease-in-out 0.2s;
+$form-border: 1px solid rgba($color: #000, $alpha: 0.1);
+$form-border-color-focus: rgba($color: #000, $alpha: 0.25);
+
+.image-input {
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  align-content: stretch;
+  align-items: stretch;
+
+  & &_filename {
+    flex: 1;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 0 $form-padding;
+    border-top-left-radius: $border-radius-base;
+    border-bottom-left-radius: $border-radius-base;
+    border: $form-border;
+    border-right: none;
+
+    &.placeholder {
+      color: $form-border-color-focus;
+    }
+
+    transition: $transition-base;
+  }
+
+  &:hover,
+  &:focus {
+    .image-input_filename {
+      border-color: $form-border-color-focus;
+    }
+  }
+
+  & &_widget {
+    display: none;
+  }
+
+  & &_button {
+    user-select: none;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: $color-primary;
+    border-top-right-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+    border: none;
+    padding: 0 ($form-item-height / 2);
+  }
+}
+
+.#{$namespace}-form {
+  font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+  border: $form-border;
+
+  & &_separator {
+    flex: 0 0 100%;
+    padding-top: (8px * 2 + $form-item-height);
+  }
+}
+
+.#{$namespace}-form-item {
+  display: flex;
+  flex: 0 0 100%;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 8px 0;
+
+  & &_label {
+    font-size: 18px;
+    display: flex;
+    flex: none;
+    justify-content: right;
+    align-content: center;
+    align-items: center;
+    width: $form-item_label-width;
+    height: $form-item-height;
+    padding: 0 $form-padding;
+  }
+
+  & &_widget {
+    min-height: $form-item-height;
+    transition: $transition-base;
+
+    &.text,
+    &.textarea,
+    &.number {
+      border-radius: $border-radius-base;
+      border: $form-border;
+      &:hover,
+      &:focus {
+        border-color: $form-border-color-focus;
+      }
+    }
+
+    &.text {
+      flex: 1;
+      height: $form-item-height;
+      padding: 0 $form-padding;
+    }
+
+    &.textarea {
+      resize: none;
+      flex: 1;
+      padding: $form-padding;
+    }
+
+    &.number {
+      flex: 1;
+    }
+  }
+}

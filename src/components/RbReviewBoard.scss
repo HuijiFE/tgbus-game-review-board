@@ -1,8 +1,6 @@
 $color-pros: #e60012;
 $color-cons: #32b4d5;
 
-$review-board-width: 1000px;
-$review-board-height: 424px;
 $review-board_inner-height: 371px;
 $review-board_inner-background: #2c2c2c;
 
@@ -200,7 +198,7 @@ $review-board_title-tail-width: 32px;
     font-size: 18px;
     display: flex;
     flex: 0 0 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
     align-items: center;
     padding: 4px 40px;
