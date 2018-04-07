@@ -39,7 +39,7 @@
           </div>
 
           <div class="rb-form-item">
-            <span class="rb-form-item_label">标语</span>
+            <span class="rb-form-item_label">评语</span>
             <input class="rb-form-item_widget text"
                    type="text"
                    v-model="intro" />
@@ -64,9 +64,7 @@
                    type="number"
                    step="0.1"
                    v-model="scoreTotal" />
-          </div>
-          <div class="rb-form-item">
-            <span class="rb-form-item_label">评语</span>
+            <span class="rb-form-item_label">评级</span>
             <input class="rb-form-item_widget text"
                    type="text"
                    v-model="scoreTotalLabel" />
@@ -153,10 +151,10 @@ export default class App extends Vue {
   );
 
   public get pros(): string[] {
-    return this.prosSource.split('\n').filter((s, i) => s && i < 6);
+    return this.prosSource.split(/[\r\n]+/).filter((s, i) => s && i < 6);
   }
   public get cons(): string[] {
-    return this.consSource.split('\n').filter((s, i) => s && i < 6);
+    return this.consSource.split(/[\r\n]+/).filter((s, i) => s && i < 6);
   }
 
   public scoreTotal: number = 8.0;

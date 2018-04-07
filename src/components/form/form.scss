@@ -2,8 +2,8 @@ $form-item-height: 32px;
 $form-item_label-width: 64px;
 $form-padding: 8px;
 $transition-base: all ease-in-out 0.2s;
-$form-border: 1px solid rgba($color: #000, $alpha: 0.1);
-$form-border-color-focus: rgba($color: #000, $alpha: 0.25);
+$form-border: 1px solid rgba($color: #000, $alpha: 0.2);
+$form-border-color-focus: rgba($color: #000, $alpha: 0.4);
 
 .image-input {
   cursor: pointer;
@@ -109,6 +109,7 @@ $form-border-color-focus: rgba($color: #000, $alpha: 0.25);
     }
 
     &.textarea {
+      line-height: 1.5;
       resize: none;
       flex: 1;
       padding: $form-padding;
@@ -116,6 +117,7 @@ $form-border-color-focus: rgba($color: #000, $alpha: 0.25);
 
     &.number {
       flex: 1;
+      padding: 0 $form-padding;
     }
   }
 }
