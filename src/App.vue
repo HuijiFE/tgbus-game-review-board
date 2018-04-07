@@ -166,13 +166,6 @@ export default class App extends Vue {
   public scoreSystem: number = 7.0;
   public scoreOperation: number = 7.0;
 
-  public onCoverSelect() {
-    const coverInput = <HTMLInputElement>this.$refs.coverInput;
-    if (coverInput.files) {
-      this.cover = window.URL.createObjectURL(coverInput.files[0]);
-    }
-  }
-
   public canvasDisplay: 'show' | 'hidden' = 'hidden';
   public image: string = '';
 
@@ -191,10 +184,6 @@ export default class App extends Vue {
     this.image = '';
     // tslint:disable-next-line
     // (<Element>this.$refs.canvasContainer).innerHTML = '';
-  }
-
-  public save(): void {
-    //
   }
 }
 </script>

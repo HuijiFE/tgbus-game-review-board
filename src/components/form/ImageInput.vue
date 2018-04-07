@@ -25,6 +25,9 @@ import {
   Watch,
 } from 'vue-property-decorator';
 
+/**
+ * Component: image input
+ */
 @Component
 export default class ImageInput extends Vue {
   private filename: string = '';
@@ -34,7 +37,7 @@ export default class ImageInput extends Vue {
   @Model('change') public dataUrl: string;
 
   private onChange(): void {
-    if (this.widget.files) {
+    if (this.widget.files !== null) {
       this.filename = this.widget.files[0].name;
       this.$emit('change', window.URL.createObjectURL(this.widget.files[0]));
     }
