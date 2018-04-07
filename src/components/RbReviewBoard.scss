@@ -148,16 +148,25 @@ $review-board_title-tail-width: 32px;
   }
 
   & &_score-badge {
+    position: relative;
     font-weight: bold;
     position: absolute;
     top: -(($review-board-height - $review-board_inner-height) / 2);
     right: 0;
     width: $review-board_badge-width;
     height: $review-board_badge-height;
-    background-image: url('~@/assets/score-badge.png');
+  }
+
+  & &_score-badge-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   & &_score-total {
+    position: relative;
     height: $review-board_badge-width;
     display: flex;
     flex-wrap: wrap;
@@ -185,6 +194,7 @@ $review-board_title-tail-width: 32px;
   }
 
   & &_score-wrapper {
+    position: relative;
     color: $color-primary;
     display: flex;
     flex-wrap: wrap;

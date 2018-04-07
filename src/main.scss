@@ -15,6 +15,10 @@ $namespace: 'rb';
 $color-primary: #b40001;
 $border-radius-base: 2px;
 
+.fg-primary {
+  color: $color-primary;
+}
+
 $review-board-width: 1000px;
 $review-board-height: 424px;
 
@@ -49,6 +53,7 @@ $review-board-height: 424px;
 
 .#{$namespace}-button {
   cursor: pointer;
+  text-decoration: none;
   display: inline-flex;
   justify-content: center;
   align-content: center;

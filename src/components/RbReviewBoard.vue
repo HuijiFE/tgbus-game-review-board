@@ -44,6 +44,9 @@
       </div>
 
       <div class="rb-review-board_score-badge">
+        <img class="rb-review-board_score-badge-background"
+             src="@/assets/score-badge.png"
+             alt="">
         <div class="rb-review-board_score-total">
           <div class="rb-review-board_score-total-value">{{scoreTotal | scoreFix}}分</div>
           <div class="rb-review-board_score-total-label">{{scoreTotalLabel}}</div>

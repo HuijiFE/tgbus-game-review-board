@@ -79,10 +79,21 @@ $form-border-color-focus: rgba($color: #000, $alpha: 0.4);
     font-size: 18px;
     display: flex;
     flex: none;
-    justify-content: right;
+    justify-content: flex-end;
     align-content: center;
     align-items: center;
     width: $form-item_label-width;
+    height: $form-item-height;
+    padding: 0 $form-padding;
+  }
+
+  & &_note {
+    font-size: 18px;
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
     height: $form-item-height;
     padding: 0 $form-padding;
   }

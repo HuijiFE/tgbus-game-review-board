@@ -67,7 +67,10 @@
                       v-model="consSource" />
           </div>
 
-          <div class="rb-form_separator"></div>
+          <div class="rb-form-item fg-primary">
+            <span class="rb-form-item_label">注意</span>
+            <span class="rb-form-item_note">“优点”和“缺点”每条一行！</span>
+          </div>
 
           <div class="rb-form-item">
             <span class="rb-form-item_label">总分</span>
@@ -160,9 +163,7 @@ export default class App extends Vue {
     '用心修订过的细节和战役',
     '全程语音和音乐重置',
   ].join('\n');
-  public consSource: string = ['寻路机制问题突出', 'AI反馈令人失望', 'Bug依然较多'].join(
-    '\n'
-  );
+  public consSource: string = ['寻路机制问题突出', 'AI反馈令人失望', 'Bug依然较多'].join('\n');
 
   public get pros(): string[] {
     return this.prosSource.split(/[\r\n]+/).filter((s, i) => s && i < 6);
