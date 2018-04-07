@@ -114,7 +114,9 @@
       <!-- <div class="rb-canvas_container"
            ref="canvasContainer"></div> -->
       <div class="rb-button-wrapper">
-        <a class="rb-button">保存</a>
+        <a class="rb-button"
+           :download="`评分板_${title}.png`"
+           :href="image">保存</a>
       </div>
     </div>
   </div>
