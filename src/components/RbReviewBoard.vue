@@ -4,7 +4,7 @@
       <div class="rb-review-board_cover-container">
         <img v-if="cover"
              class="rb-review-board_cover"
-             :class="coverFit"
+             :class="`fit-${coverFit}`"
              :src="cover">
         <img v-else
              class="rb-review-board_cover"
@@ -99,8 +99,8 @@ function scoreFix(value: number): string {
 export default class RbReviewBoard extends Vue {
   public readonly baseUrl?: string = process.env.BASE_URL;
 
-  @Prop({ type: String, default: 'fit-contain' })
-  public coverFit: 'fit-contain' | 'fit-cover';
+  @Prop({ type: String, default: 'contain' })
+  public coverFit: 'contain' | 'cover';
 
   @Prop({ type: String })
   public cover: string;

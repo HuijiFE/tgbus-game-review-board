@@ -102,6 +102,19 @@ $form-border-color-focus: rgba($color: #000, $alpha: 0.4);
       }
     }
 
+    &.radio {
+      cursor: pointer;
+      display: flex;
+      flex: none;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      padding: $form-padding;
+      & input {
+        margin-right: $form-padding;
+      }
+    }
+
     &.text {
       flex: 1;
       height: $form-item-height;

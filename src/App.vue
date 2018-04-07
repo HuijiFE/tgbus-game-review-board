@@ -7,6 +7,7 @@
 
     <div class="rb-section">
       <rb-review-board ref="source"
+                       :coverFit="coverFit"
                        :cover="cover"
                        :title="title"
                        :intro="intro"
@@ -29,6 +30,16 @@
             <span class="rb-form-item_label">封面</span>
             <image-input class="rb-form-item_widget file"
                          v-model="cover"></image-input>
+            <label class="rb-form-item_widget radio">
+              <input type="radio"
+                     value="contain"
+                     v-model="coverFit" />图片自适应
+            </label>
+            <label class="rb-form-item_widget radio">
+              <input type="radio"
+                     value="cover"
+                     v-model="coverFit" />图片填充
+            </label>
           </div>
 
           <div class="rb-form-item">
@@ -138,6 +149,7 @@ import ImageInput from '@/components/form/ImageInput.vue';
   },
 })
 export default class App extends Vue {
+  public coverFit: string = 'contain';
   public cover: string = '';
   public title: string = '《帝国时代：决定版》';
   public intro: string = '虽然“原汁原味”，却有些“忆苦思甜”';
