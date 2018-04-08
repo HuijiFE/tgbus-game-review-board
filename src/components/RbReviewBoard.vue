@@ -2,14 +2,13 @@
   <div class="rb-review-board">
     <div class="rb-review-board_inner">
       <div class="rb-review-board_cover-container">
-        <img v-if="cover"
-             class="rb-review-board_cover"
-             :class="`fit-${coverFit}`"
-             :src="cover">
-        <img v-else
-             class="rb-review-board_cover"
-             :class="coverFit"
-             src="@/assets/game-cover.png" />
+        <div class="rb-review-board_cover-inner"
+             ref="inner">
+          <img class="rb-review-board_cover"
+               :src="cover"
+               ref="cover"
+               :style="{width: coverWidth, height: coverHeight, objectFit: 'contain'}">
+        </div>
       </div>
 
       <div class="rb-review-board_header">
@@ -78,7 +77,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 
 function scoreFix(value: number): string {
   if (value < 0) {
@@ -107,6 +106,75 @@ export default class RbReviewBoard extends Vue {
 
   @Prop({ type: String })
   public cover: string;
+
+  public coverWidth: string = '';
+  public coverHeight: string = '';
+
+  public getCoverWidth(image: HTMLImageElement): string {
+    if (this.coverFit === 'contain') {
+      if (
+        image.naturalWidth / image.naturalHeight >
+        this.innerElement.clientWidth / this.innerElement.clientHeight
+      ) {
+        return '100%';
+      } else {
+        return 'auto';
+      }
+    } else if (this.coverFit === 'cover') {
+      if (
+        image.naturalWidth / image.naturalHeight >
+        this.innerElement.clientWidth / this.innerElement.clientHeight
+      ) {
+        return 'auto';
+      } else {
+        return '100%';
+      }
+    }
+
+    return '';
+  }
+
+  public getCoverHeight(image: HTMLImageElement): string {
+    if (this.coverFit === 'contain') {
+      if (
+        image.naturalWidth / image.naturalHeight >
+        this.innerElement.clientWidth / this.innerElement.clientHeight
+      ) {
+        return 'auto';
+      } else {
+        return '100%';
+      }
+    } else if (this.coverFit === 'cover') {
+      if (
+        image.naturalWidth / image.naturalHeight >
+        this.innerElement.clientWidth / this.innerElement.clientHeight
+      ) {
+        return '100%';
+      } else {
+        return 'auto';
+      }
+    }
+
+    return '';
+  }
+
+  @Watch('cover')
+  private onCoverChange(value: string): void {
+    this.$nextTick(() => {
+      const image: HTMLImageElement = window.document.createElement('img');
+      image.src = value;
+      this.coverWidth = this.getCoverWidth(image);
+      this.coverHeight = this.getCoverHeight(image);
+    });
+  }
+
+  @Watch('coverFit')
+  private onCoverFitChange(): void {
+    this.$nextTick(() => {
+      this.coverWidth = this.getCoverWidth(this.coverElement);
+      this.coverHeight = this.getCoverHeight(this.coverElement);
+    });
+  }
 
   @Prop({ type: String })
   public title: string;
@@ -137,5 +205,13 @@ export default class RbReviewBoard extends Vue {
 
   @Prop({ type: Number, default: 0 })
   public scoreOperation: number;
+
+  private innerElement: HTMLDivElement;
+  private coverElement: HTMLImageElement;
+
+  private mounted(): void {
+    this.innerElement = <HTMLDivElement>this.$refs.inner;
+    this.coverElement = <HTMLImageElement>this.$refs.cover;
+  }
 }
 </script>

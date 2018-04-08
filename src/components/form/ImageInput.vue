@@ -37,7 +37,7 @@ export default class ImageInput extends Vue {
   @Model('change') public dataUrl: string;
 
   private onChange(): void {
-    if (this.widget.files !== null) {
+    if (this.widget.files !== null && this.widget.files.length === 1) {
       this.filename = this.widget.files[0].name;
       this.$emit('change', window.URL.createObjectURL(this.widget.files[0]));
     }

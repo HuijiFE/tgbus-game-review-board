@@ -52,17 +52,21 @@ $review-board_title-tail-width: 32px;
     overflow: hidden;
   }
 
-  & &_cover {
+  & &_cover-inner {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    border-radius: $review-board_cover-border-radius;
     background: $review-board_cover-background;
-    &.fit-contain {
-      object-fit: contain;
-    }
-    &.fit-cover {
-      object-fit: cover;
-    }
+    border-radius: $review-board_cover-border-radius;
+    overflow: hidden;
+  }
+
+  & &_cover {
+    width: 100%;
+    height: auto;
   }
 
   & &_header {

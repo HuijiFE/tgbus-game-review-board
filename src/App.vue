@@ -141,6 +141,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import html2canvas from 'html2canvas';
 import RbReviewBoard from '@/components/RbReviewBoard.vue';
 import ImageInput from '@/components/form/ImageInput.vue';
+import defaultCover from '@/assets/game-cover.png';
 
 /**
  * App
@@ -153,7 +154,7 @@ import ImageInput from '@/components/form/ImageInput.vue';
 })
 export default class App extends Vue {
   public coverFit: string = 'contain';
-  public cover: string = '';
+  public cover: string = defaultCover;
   public title: string = '《帝国时代：决定版》';
   public intro: string = '虽然“原汁原味”，却有些“忆苦思甜”';
 
@@ -163,7 +164,9 @@ export default class App extends Vue {
     '用心修订过的细节和战役',
     '全程语音和音乐重置',
   ].join('\n');
-  public consSource: string = ['寻路机制问题突出', 'AI反馈令人失望', 'Bug依然较多'].join('\n');
+  public consSource: string = ['寻路机制问题突出', 'AI反馈令人失望', 'Bug依然较多'].join(
+    '\n'
+  );
 
   public get pros(): string[] {
     return this.prosSource.split(/[\r\n]+/).filter((s, i) => s && i < 6);
