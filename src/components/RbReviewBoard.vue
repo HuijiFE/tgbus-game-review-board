@@ -7,7 +7,7 @@
           <img class="rb-review-board_cover"
                :src="cover"
                ref="cover"
-               :style="{width: coverWidth, height: coverHeight, objectFit: 'contain'}">
+               :style="{width: coverWidth, height: coverHeight}">
         </div>
       </div>
 
